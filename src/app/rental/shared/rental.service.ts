@@ -1,12 +1,13 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { Rental } from "./rental.modal";
 
 // export so it can be use elsewhere
 @Injectable()
 export class RentalService {
-  private rentals: any[] = [
+  private rentals: Rental[] = [
     {
-      id: 1,
+      id: "1",
       title: "Central Apartment",
       city: "New York",
       street: "Times Sqaure",
@@ -19,7 +20,7 @@ export class RentalService {
       createdAt: "24/12/2017"
     },
     {
-      id: 2,
+      id: "2",
       title: "Central Apartment 2",
       city: "San Francisco",
       street: "Main street",
@@ -32,7 +33,7 @@ export class RentalService {
       createdAt: "24/12/2017"
     },
     {
-      id: 3,
+      id: "3",
       title: "Central Apartment 3",
       city: "Bratislava",
       street: "Hlavna",
@@ -45,7 +46,7 @@ export class RentalService {
       createdAt: "24/12/2017"
     },
     {
-      id: 4,
+      id: "4",
       title: "Central Apartment 4",
       city: "Berlin",
       street: "Haupt strasse",
@@ -59,20 +60,23 @@ export class RentalService {
     }
   ];
 
-  public getRentals(): any {
-    const rentalObservable = new Observable(observer => {
+  // Display rental data from service and show in their own page
+  public getRentalById(rentalId: string): Observable<Rental> {
+    return new Observable<Rental>(observer => {
+      setTimeout(() => {
+        const foundRental = this.rentals.find(rental => {
+          return rental.id == rentalId;
+        });
+        observer.next(foundRental);
+      }, 500);
+    });
+  }
+
+  public getRentals(): Observable<Rental[]> {
+    return new Observable<Rental[]>(observer => {
       setTimeout(() => {
         observer.next(this.rentals);
       }, 1000);
-
-      setTimeout(() => {
-        observer.error("I am erroe");
-      }, 2000);
-
-      setTimeout(() => {
-        observer.complete();
-      }, 3000);
     });
-    return rentalObservable;
   }
 }
