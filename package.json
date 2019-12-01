@@ -9,10 +9,11 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "dev": "concurrently \"npm run start\" \"node server\""
+    "dev": "concurrently \"npm run start\" \"nodemon server\""
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^1.0.0-beta.2",
     "@angular/animations": "^5.2.11",
     "@angular/common": "^5.2.11",
     "@angular/compiler": "^5.2.11",

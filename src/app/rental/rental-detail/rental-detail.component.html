@@ -7,7 +7,7 @@
       </div>
       <div class="col-md-6">
         <!-- Will be replaced with map !!!! -->
-        <img src="{{ rental.image }}" alt="" />
+        <bwn-map [location]="rental.city + ', ' + rental.street"></bwn-map>
       </div>
     </div>
   </div>
@@ -17,11 +17,11 @@
       <div class="col-md-8">
         <div class="rental">
           <h2 class="rental-type {{ rental.category }}">
-          <!-- teniary opertor to display shared or whole  -->
-            {{ rental.shared ? 'Shared' : 'Whole'}} {{ rental.category }}
+            <!-- teniary opertor to display shared or whole  -->
+            {{ rental.shared ? "Shared" : "Whole" }} {{ rental.category }}
           </h2>
           <h1 class="rental-title">{{ rental.title }}</h1>
-          <h2 class="rental-city">{{ rental.city | ucwords}}</h2>
+          <h2 class="rental-city">{{ rental.city | ucwords }}</h2>
           <div class="rental-room-info">
             <span
               ><i class="fa fa-building"></i
@@ -35,7 +35,7 @@
             >
           </div>
           <p class="rental-description">
-            {{ rental.description}}
+            {{ rental.description }}
           </p>
           <hr />
           <div class="rental-assets">
