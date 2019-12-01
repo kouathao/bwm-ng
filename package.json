@@ -4,11 +4,12 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "dev": "concurrently \"npm run start\" \"node server\""
   },
   "private": true,
   "dependencies": {
@@ -22,9 +23,12 @@
     "@angular/platform-browser-dynamic": "^5.2.11",
     "@angular/router": "^5.2.11",
     "bootstrap": "^4.1.0",
+    "concurrently": "^5.0.0",
     "core-js": "^2.6.10",
     "express": "^4.17.1",
+    "font-awesome": "^4.7.0",
     "mongoose": "^5.7.13",
+    "ngx-pipes": "^2.6.0",
     "rxjs": "^5.5.12",
     "zone.js": "^0.8.29"
   },
